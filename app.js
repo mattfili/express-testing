@@ -1,41 +1,42 @@
+//npm requires
 var express = require('express');
+
+//file requires
+
+var routes = require('./routes/index');
+var pizza = require('./routes/pizza');
+
+//variables
+
 var app = express();
 
+//settings
+
 app.set('view engine', 'ejs');
+app.set('case sensitive routing', true);
 
-app.get('/test', function (req, res) {
-	res.send('Test1!');
-	next();
-});
+app.locals.title = "aweso.me";
 
-app.get('/awesomethings', function (req, res) {
-	var awesomeThings = [
-		'Pizza',
-		'Bacon',
-		'2nd Amendment',
-		'Pluto',
-		'Space Jam'
-	];
-
-	res.render('templates/world', {
-		title: 'Awesometitle', 
-		welcome: 'thanks for coming!',
-		awesomeThings: awesomeThings
-	});
-});
-
-app.get('/json', function (req, res) {
-	res.send({an: 'object'});
-});
-
-app.get('thisshoulderror', function (req, res) {
-	res.send(badVariable);
-});
+// middlewares
 
 app.use(function (req, res, next) {
 	console.log('request at ' + new Date().toISOString());
 	next();
 });
+
+app.use(express.static('public'));
+
+// routes
+
+// require('./routes/index')(app); could do it this way by passing it 
+app.use('/', routes)
+app.use('/pizza', pizza)
+
+// e.g.,
+// app.use('/users', use)
+// app.use('/todo', todo)
+
+// error handling
 
 app.use(function (err, req, res, next) {
 	console.log('error', err.stack);
