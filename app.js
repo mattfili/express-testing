@@ -1,5 +1,6 @@
 //npm requires
 var express = require('express');
+var lessCSS = require('less-middleware')
 
 //file requires
 
@@ -18,6 +19,8 @@ app.set('case sensitive routing', true);
 app.locals.title = "aweso.me";
 
 // middlewares
+
+app.use(lessCSS('public'));
 
 app.use(function (req, res, next) {
 	console.log('request at ' + new Date().toISOString());
