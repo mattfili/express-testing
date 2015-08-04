@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title> <%= title %> | CNode</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+    </head>
+
+    <body> 
+    	<h1> Testing CNode EJS File</h1>
+        <form action="cnode/order" method="post">
+           Name: <input name="name" type="text" placeholder="Name"></input>
+           Style:
+            <select name="style">
+                <option value="mild"> Mild </option>
+                <option value="medium"> Medium </option>
+                <option value="hot"> Hot </option>
+                <option value="wild"> The floor is so hot </option>
+        </form>
+          Qty:  <input name="qty" type="number" min="1"></input>
+            <input type="submit" value="order me some nuggets"></input>
+    </body>
+</html>
