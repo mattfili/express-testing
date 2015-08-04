@@ -3,6 +3,7 @@ var express = require('express');
 var lessCSS = require('less-middleware')
 var morgan = require('morgan')
 var fs = require('fs')
+var loggly = require('loggly')
 
 //file requires
 
@@ -25,6 +26,29 @@ app.locals.title = "aweso.me";
 var logStream = fs.createWriteStream('access.log', {flags: 'a'});
 app.use(lessCSS('public'));
 app.use(morgan('dev', {stream: logStream}))
+
+var loggly = require('loggly');
+ 
+ var client = loggly.createClient({
+    token: "0148ba7e-69ce-4cfa-822a-de88fdfd6d2c",
+    subdomain: "mattfili",
+    tags: ["NodeJS"],
+    json:true
+});
+
+app.use(function (req, res, next) {
+	client.log({
+		ip: req.ip, 
+		date: new Date(), 
+		url: req.url,
+		status: req.statusCode,
+		method: req.method,
+		err: err
+	});
+	next();
+})
+
+client.log('Sup Son');
 
 app.use(function (req, res, next) {
 	console.log('request at ' + new Date().toISOString());
