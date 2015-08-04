@@ -1,6 +1,8 @@
 //npm requires
 var express = require('express');
 var lessCSS = require('less-middleware')
+var morgan = require('morgan')
+var fs = require('fs')
 
 //file requires
 
@@ -20,7 +22,9 @@ app.locals.title = "aweso.me";
 
 // middlewares
 
+var logStream = fs.createWriteStream('access.log', {flags: 'a'});
 app.use(lessCSS('public'));
+app.use(morgan('dev', {stream: logStream}))
 
 app.use(function (req, res, next) {
 	console.log('request at ' + new Date().toISOString());
