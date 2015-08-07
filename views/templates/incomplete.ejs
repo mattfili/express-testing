@@ -1,0 +1,38 @@
+ <h2> Non Completed</h2>
+     <table>
+         <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Flavor
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Created At
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+             <tbody>
+              <% orders.forEach(function(order) { %>
+                <tr>
+                    <td><%= order.name %></td>
+                    <td><%= order.style %></td>
+                    <td><%= order.qty %></td>
+                    <td><%= order.createdAt %></td>
+                    <td><%= order._idKey %></td>
+                    <td> 
+                        <form action="/cnode/order/<%= order._idkey %>/complete" method="post">
+                         <input type="submit" value="complete">
+                        </form>
+                    </td>
+                </tr>
+             <% }); %>
+             </tbody>
+         </thead>
+     </table>

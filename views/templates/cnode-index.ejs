@@ -10,42 +10,7 @@
     </head>
 
     <body> 
-    	<h1> Orders</h1>
-        <a href="/cnode/order"> New Order </a>
-         <table>
-             <thead>
-                <tr>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Flavor
-                    </th>
-                    <th>
-                        Kwanteetees
-                    </th>
-                    <th>
-                        Created At
-                    </th>
-                    <th>
-                        Actions
-                    </th>
-                </tr>
-                 <tbody>
-                  <% orders.forEach(function(order) { %>
-                    <tr>
-                        <td><%= order.name %></td>
-                        <td><%= order.flavor %></td>
-                        <td><%= order.qty %></td>
-                        <td><%= order.createdAt %></td>
-                        <td> 
-                            <form action="/cnode/order/<%= order._id %>/complete" method="post">
-                        </form>
-                    </tr>
-    
-                 <%   }); %>
-                 </tbody>
-             </thead>
-         </table>
+             <% include incomplete.ejs %>
+             <% include complete.ejs %>
     </body>
 </html>

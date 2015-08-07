@@ -1,0 +1,32 @@
+<h2> Completed</h2>
+         <table>
+             <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Flavor
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Created At
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+                 <tbody>
+                    <% comOrders.forEach(function(order) { %>
+                    <tr>
+                        <td><%= order.name %></td>
+                        <td><%= order.style %></td>
+                        <td><%= order.qty %></td>
+                        <td><%= order.createdAt %></td>
+                    </tr>
+                    <% }); %>
+                 </tbody>
+             </thead>
+         </table>
