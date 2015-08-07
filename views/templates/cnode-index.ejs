@@ -19,13 +19,16 @@
                         Name
                     </th>
                     <th>
-                        Time
-                    </th>
-                    <th>
-                        Falvorz
+                        Flavor
                     </th>
                     <th>
                         Kwanteetees
+                    </th>
+                    <th>
+                        Created At
+                    </th>
+                    <th>
+                        Actions
                     </th>
                 </tr>
                  <tbody>
@@ -35,6 +38,9 @@
                         <td><%= order.flavor %></td>
                         <td><%= order.qty %></td>
                         <td><%= order.createdAt %></td>
+                        <td> 
+                            <form action="/cnode/order/<%= order._id %>/complete" method="post">
+                        </form>
                     </tr>
     
                  <%   }); %>

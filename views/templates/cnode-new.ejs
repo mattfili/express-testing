@@ -11,7 +11,7 @@
 
     <body> 
     	<h1> Testing CNode EJS File</h1>
-        <form action="cnode/order" method="post">
+        <form action="/cnode/order" method="post">
            Name: <input name="name" type="text" placeholder="Name"></input>
            Style:
             <select name="style">
@@ -19,8 +19,9 @@
                 <option value="medium"> Medium </option>
                 <option value="hot"> Hot </option>
                 <option value="wild"> The floor is so hot </option>
-        </form>
-          Qty:  <input name="qty" type="number" min="1"></input>
+            Qty:  
+            <input name="qty" type="number" min="1"></input>
             <input type="submit" value="order me some nuggets"></input>
+        </form>
     </body>
 </html>
