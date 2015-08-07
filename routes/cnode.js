@@ -3,7 +3,6 @@ var router = express.Router();
 var moment = require('moment')
 var ObjectId = require('mongodb').ObjectID
 
-
 function getIncomplete(req, res, next) { 
 	var collection = global.db.collection('cNode')
 
