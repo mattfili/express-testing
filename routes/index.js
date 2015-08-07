@@ -7,17 +7,13 @@ router.get('/test', function (req, res) {
 });
 
 router.get('/awesomethings', function (req, res) {
-	var awesomeThings = [
-		'Pizza',
-		'Bacon',
-		'2nd Amendment',
-		'Pluto',
-		'Space Jam'
-	];
+	var collection = global.db.collection('awesomeThings')
 
-	res.render('templates/world', {
-		welcome: 'thanks for coming!',
-		awesomeThings: awesomeThings
+	collection.find().toArray(function(err, things) {
+		res.render('templates/world', {
+			welcome: 'thanks for coming!',
+			awesomeThings: things
+		});
 	});
 });
 
