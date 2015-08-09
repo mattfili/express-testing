@@ -1,0 +1,25 @@
+<h2> Pizzas</h2>
+         <table>
+             <thead>
+                <tr>
+                    <th>
+                        Toppings
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Created At
+                    </th>
+                </tr>
+                 <tbody>
+                    <% pizza.forEach(function(order) { %>
+                    <tr>
+                        <td><%= order.name %></td>
+                        <td><%= order.topping %></td>
+                        <td><%= order.qty %></td>
+                    </tr>
+                    <% }); %>
+                 </tbody>
+             </thead>
+         </table>
